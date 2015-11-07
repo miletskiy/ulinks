@@ -16,6 +16,15 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from links import views
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^$', views.home_page, name='home'),
+
+    url(r'^new$', views.new_link, name='new_link'),
+
+    # url(r'^(\d+)/$', views.view_link, name='view_link'),
 ]
+

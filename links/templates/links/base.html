@@ -1,0 +1,65 @@
+{% load static from staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="uk"> 
+  <head>
+    <meta charset="UTF-8"/>
+    <title>{% block meta_title %}{% endblock meta_title %}</title> 
+    <meta name="description" value="App to manage useful links"/>
+
+  <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" >
+
+  <link rel="stylesheet" href={{PORTAL_URL}}{% static "css/main.css" %}>
+  
+<style type="text/css">.col-xs-12, .col-xs-4, .col-xs-8, .col-xs-6,.col-xs-2,.col-xs-3, .col-xs-9 {border:1px solid red;}</style>
+
+  </head>
+
+  <body>
+    <div class="container">
+                       <!-- Title -->
+
+    <div class="col-xs-5" style="float: left;">
+       <h2>{% block title %}{% endblock title %}</h2> 
+    </div>
+
+                       <!-- Navbar -->
+{% block navbar %}
+{% include "links/navbar.html" %}
+{% endblock navbar %}
+
+
+  
+                       <!-- Lorem ipsum 
+     <h1>Вітаю вас на нашій сторінці!</h1> 
+        <p>Поки тут порожньо, але незабаром ми матимемо список студентів</p>  
+-->
+                       <!-- Start Header_stuff -->
+{% block header_stuff %}
+
+{% endblock header_stuff %}
+
+                       <!-- Start Body_stuff -->
+{% block body_stuff %}
+
+{% endblock body_stuff %}
+
+                       <!-- Start Footer -->
+{% block footer %}
+
+<!-- {% with object_list=links %} -->
+{% include "links/footer.html" %}
+<!-- {% endwith %} -->
+
+{% endblock footer %}
+                        <!-- END Container -->
+  </div>
+
+                     <!-- Javascripts Section -->
+                      <!--
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+-->
+  </body>
+</html>

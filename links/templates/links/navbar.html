@@ -1,0 +1,39 @@
+        
+                <!-- Navbar 
+
+          <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                  <th><a href="#"</a>nav1
+                  </th>
+
+                  <th><a href="#"</a>nav2
+                  </th>
+
+                  <th><a href="#"</a>nav3
+                  </th>
+
+                  <th><a href="#"</a>nav4
+                  </th>
+
+                  <th><a href="#"</a>nav5
+                  </th>
+
+                </tr>
+            </thead>
+-->
+{% block navbar %}
+         <!-- Start navbar -->
+
+    <div class="row" id="navbar"> 
+      <div class="col-xs-12">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href={% url "home" %}>Deployment</a></li>
+          <li role="presentation"><a href="/journal">Data Science</a></li>
+          <li role="presentation"><a href="/journal">Databases</a></li>
+          <li role="presentation"><a href="/journal">Tutorials</a></li>
+          <li role="presentation"><a href="">Testing</a></li>
+        </ul>
+      </div>
+    </div>
+{% endblock navbar %}
