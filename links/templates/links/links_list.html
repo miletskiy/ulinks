@@ -12,6 +12,11 @@
                 <!-- Start Links Listing -->
 {% block header_stuff %}
 
+{% endblock header_stuff %}
+
+{% block body_stuff %}
+
+  <div class="col-xs-9">
       <table class="table table-hover table-striped">
         <thead>
             <tr>
@@ -32,11 +37,6 @@
 
             </tr>
         </thead>
-        
-{% endblock header_stuff %}
-
-{% block body_stuff %}
-
         <tbody>
           <tr>
             <td><a href="#"</a>link
@@ -54,6 +54,25 @@
         </tbody>
 
       </table>
+  </div>
+  <div class="col-xs-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Top5 resources</h3>
+      </div>
+      <div class="panel-body">
+        <ol>
+         <li>top1</li>
+         <li>top2</li>
+         <li>top3</li>
+         <li>top4</li>
+         <li>top5</li>
+        </ol>
+      </div>
+    </div>  
+  </div>
+
+
 
 {% endblock body_stuff %}
 

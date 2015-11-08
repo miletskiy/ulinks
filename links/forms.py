@@ -35,7 +35,7 @@ class ResourceAddForm(forms.models.ModelForm):
 
         # buttons
         self.helper.layout.fields.append(FormActions(
-            Submit('add_button', 'Add', css_class="btn btn-primary"),
+            Submit('add_button', 'Add', css_class="btn btn-success"),
             Submit('cancel_button', 'Cancel', css_class="btn btn-link"),
         ))
 

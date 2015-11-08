@@ -10,31 +10,90 @@
 
   <link rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" >
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href={{PORTAL_URL}}{% static "css/main.css" %}>
-  
-<style type="text/css">.col-xs-12, .col-xs-4, .col-xs-8, .col-xs-6,.col-xs-2,.col-xs-3, .col-xs-9 {border:1px solid red;}</style>
+  <link rel="stylesheet" href={{PORTAL_URL}}{% static "css/bootstrap-social.css" %}>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.10.1/bootstrap-social.min.css">
 
   </head>
 
   <body>
-    <div class="container">
-                       <!-- Title -->
 
-    <div class="col-xs-5" style="float: left;">
-       <h2>{% block title %}{% endblock title %}</h2> 
+                       <!-- Header -->
+    <div class="row" id="header">
+      <div class="col-xs-3">
+          <a href="http://yandex.com"><img src="{% static "logo_light.png" %}" width="280"></a>
+      </div>
+      <div class="col-xs-6 background-green">
+           <h2>Resources</h2>
+           <h4>Here everyone can add useful link for Django/Python developers</h3>
+      </div>
+      <div class="col-xs-3 background-white">
+      <!--<h4>
+          social buttons here
+      </h4>-->
+        <div class="nav navbar-nav margin-head">
+          <a class="btn btn-social-icon btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+          <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+          <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
+          <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+          <a class="btn btn-social-icon btn-youtube" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
+          <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
+
+        </div>
+      </div>
+
     </div>
+
+                        <!-- START Container -->
+
+    <div class="container">
 
                        <!-- Navbar -->
 {% block navbar %}
 {% include "links/navbar.html" %}
 {% endblock navbar %}
 
+                       <!-- Title   -->
+  <div class="row" id=""> 
+    <div class="col-xs-4" >
+       <h2>{% block title %}{% endblock title %}</h2> 
+    </div>
 
+                <!-- Add Resource Button -->
+      <div class="col-xs-3">
+          <!--<h2>add button</h2> -->
+          <a class="btn btn-success btn-block margin-head" id="add_button" 
+              href={% url "new_link" %}>Add new resource</a>
+      </div>
+
+                <!-- Search field -->
+      <div class="col-xs-5" >
+          <!--<h2 class="glyphicon glyphicon-search">search here</h2>-->
+          <form class="form-horizontal margin-head" role="search">
+            <div class="form-group">
+                
+              <div class="col-xs-9">
+                  <input type="text" class="form-control input-left" 
+                  placeholder="There will be Elastic Search" id="search_input">
+              </div>
+                
+              <div class="col-xs-2 lk">
+                  <button type="submit" class="btn btn-default left-button"
+                  id="search_btn">
+                    <span class="fa fa-search fa-lg" >           
+                    </span>Search
+                  </button>
+              </div>
+            </div>
+            </form>
+      </div>
+  </div>
                        <!-- Lorem ipsum 
      <h1>Вітаю вас на нашій сторінці!</h1> 
-        <p>Поки тут порожньо, але незабаром ми матимемо список студентів</p>  
+        <p>Поки тут порожньо, але незабаром ми матимемо список ресурсів</p>  
 -->
+
                        <!-- Start Header_stuff -->
 {% block header_stuff %}
 
