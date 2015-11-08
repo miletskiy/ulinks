@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Resource(models.Model):
-	"""Model for adding resources"""
+    """Model for adding resources"""
 
     class Meta:
         verbose_name = "Resource"
@@ -30,17 +30,17 @@ class Resource(models.Model):
     time_was_add = models.DateTimeField(
         auto_now_add = True,
         verbose_name= "Time add",
-		)
+        )
 
     votes_pros = models.IntegerField(
-    	verbose_name='Likes for', 
-    	default=0,
-    	)
+        verbose_name='Likes for', 
+        default=0,
+        )
 
     votes_cons = models.IntegerField(
-    	verbose_name='Likes against', 
-    	default=0,
-    	)
+        verbose_name='Likes against', 
+        default=0,
+        )
 
     def __str__(self):
         return self.title

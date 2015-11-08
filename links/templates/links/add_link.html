@@ -2,6 +2,7 @@
 {% extends "links/base.html" %}
 
 {% load static from staticfiles %}
+{% load crispy_forms_tags %}
 
 {% block meta_title %}Add Link{% endblock meta_title %}
 
@@ -9,16 +10,9 @@
 
 {% block body_stuff %}
 
+<!--
 <h3>There will be form</h3>
-
-  <div class="form-group">   
-	  <label class="col-sm-2 control-label"></label>
-      <div class="col-sm-10">
-	      <input type="submit" value="Add" name="add_button"
-	               class="btn btn-primary" />
-	      <button type="submit" name="cancel_button" 
-	                class="btn btn-link">Cancel</button>
-	    </div>
-  </div>
+ -->
+{% crispy form %}
 
 {% endblock body_stuff %}

@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'links',
 )
 
@@ -107,3 +108,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
 
 PORTAL_URL = 'http://localhost:8000'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
