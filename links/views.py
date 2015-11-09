@@ -34,7 +34,10 @@ def new_link(request):
     return render(request, 'links/add_link.html', {'form': form})
     
 def view_link(request, id):
-    return render(request, 'links/links_view.html', {})
+    resources = Resource.objects.all()
+    resource = Resource.objects.get(pk=id)
+
+    return render(request, 'links/view_link.html', {'id':id,'resources':resources,'resource':resource})
 
 
 

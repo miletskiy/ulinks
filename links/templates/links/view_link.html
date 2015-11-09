@@ -1,0 +1,71 @@
+
+{% extends "links/base.html" %}
+
+{% load static from staticfiles %}
+
+
+{% block meta_title %}View Resource {{ resource }}{% endblock meta_title %}
+
+{% block title %}View Resource {{ resource }} {% endblock title %}
+
+{% block add_button %}
+{% endblock add_button %}
+
+{% block search %}  
+      <div class="col-xs-3 col-xs-offset-5">
+          <a class="btn btn-success btn-block margin-head" id="return_button" 
+              href={% url "home" %}>Return to main page</a>
+      </div>
+{% endblock search %}
+
+
+{% block body_stuff %}
+
+<div class="col-xs-12">
+      <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+              <th>№
+              </th>
+              <th class="col-xs-2">Title
+              </th>
+              <th >Link
+              </th>
+              <th class="col-xs-6">Description
+              </th>
+              <th class="col-xs-2">Add time
+              </th>
+              <th class="col-xs-1">Cons
+              </th>
+              <th class="col-xs-1">Pros
+              </th>
+            </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>{{ resource.id }}
+            </td>
+            <td>{{ resource.title }}
+            </td>
+            <td><a href="{{ resource.link }}"</a>{{ resource.link }}
+            </td>
+            <td>{{ resource.description }}
+            </td>
+            <td>{{ resource.time_was_add }}
+            </td>
+            <td><a href="#"</a>{{ resource.votes_pros }}
+            </td>
+            <td><a href="#"</a>{{ resource.votes_cons }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+
+<!--<h3>There will be View Resource</h3>-->
+
+
+{% endblock body_stuff %}
+

@@ -27,7 +27,7 @@
               <th ><a href="#"</a>Link
               </th>
 
-              <th class="col-xs-5">Desription
+              <th class="col-xs-5">Description
               </th>
 
               <th class="col-xs-2"><a href="#"</a>Add time
@@ -47,11 +47,11 @@
           <tr>
             <td>{{ forloop.counter }}
             </td>
-            <td><a href="#"</a>{{ resource.title }}
+            <td><a href="{% url 'view_link' resource.id %}"</a>{{ resource.title }}
             </td>
-            <td><a href="#"</a>{{ resource.link }}
+            <td><a href="{{ resource.link }}"</a>{{ resource.link }}
             </td>
-            <td><a href="#"</a>{{ resource.description }}
+            <td>{{ resource.description }}
             </td>
             <td>{{ resource.time_was_add }}
             </td>
