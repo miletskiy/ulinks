@@ -1,8 +1,7 @@
-{% load static from staticfiles %}
-
 
 <!DOCTYPE html>
 <html lang="uk"> 
+{% load static from staticfiles %}
   <head>
     <meta charset="UTF-8"/>
     <title>{% block meta_title %}{% endblock meta_title %}</title> 
@@ -10,8 +9,8 @@
 
   <link rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" >
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href={{PORTAL_URL}}{% static "css/main.css" %}>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href={{PORTAL_URL}}{% static "css/bootstrap-social.css" %}>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.10.1/bootstrap-social.min.css">
 
@@ -22,7 +21,7 @@
                        <!-- Header -->
     <div class="row" id="header">
       <div class="col-xs-3">
-          <a href="http://yandex.com"><img src="{% static "logo_light.png" %}" width="280"></a>
+          <a href="{{PORTAL_URL}}"><img src="{% static "logo_light.png" %}" width="275"></a>
       </div>
       <div class="col-xs-6 background-green">
            <h2>Resources</h2>
@@ -51,22 +50,29 @@
 
                        <!-- Navbar -->
 {% block navbar %}
-{% include "links/navbar.html" %}
+  {% include "links/navbar.html" %}
 {% endblock navbar %}
 
-                       <!-- Title   -->
-  <div class="row" id=""> 
-    <div class="col-xs-4" >
-       <h2>{% block title %}{% endblock title %}</h2> 
-    </div>
+                       <!-- Start Header_stuff -->
+{% block header_stuff %}
 
+                       <!-- Title   -->
+  <div class="" id="title_block"> 
+      <div class="col-xs-4" >
+         <h2>{% block title %}{% endblock title %}</h2> 
+      </div>
+
+    {% block add_button %}
                 <!-- Add Resource Button -->
       <div class="col-xs-3">
           <!--<h2>add button</h2> -->
+          {# {% csrf_token %} #}
           <a class="btn btn-success btn-block margin-head" id="add_button" 
               href={% url "new_link" %}>Add new resource</a>
       </div>
+    {% endblock add_button %}
 
+    {% block search %}
                 <!-- Search field -->
       <div class="col-xs-5" >
           <!--<h2 class="glyphicon glyphicon-search">search here</h2>-->
@@ -78,40 +84,55 @@
                   placeholder="There will be Elastic Search" id="search_input">
               </div>
                 
-              <div class="col-xs-2 lk">
-                  <button type="submit" class="btn btn-default left-button"
+              <div class="col-xs-2 left_button">
+                  <button type="submit" class="btn btn-default left_button"
                   id="search_btn">
                     <span class="fa fa-search fa-lg" >           
                     </span>Search
                   </button>
               </div>
             </div>
-            </form>
+          </form>
       </div>
+    {% endblock search %}
   </div>
+    
+
+{% endblock header_stuff %}
+
                        <!-- Lorem ipsum 
      <h1>Вітаю вас на нашій сторінці!</h1> 
         <p>Поки тут порожньо, але незабаром ми матимемо список ресурсів</p>  
 -->
 
-                       <!-- Start Header_stuff -->
-{% block header_stuff %}
-
-{% endblock header_stuff %}
-
                        <!-- Start Body_stuff -->
-{% block body_stuff %}
 
+  <div class="row" id="content-columns">
+    <div class="col-xs-12" id="content-column"> 
+
+      <div class="col-xs-8 col-xs-offset-1">
+      {% block status_message %}
+          {% if messages %}
+              {% for message in messages %}
+                      <div class="alert alert-success" role="alert">
+                         {{ message }}
+                      </div>
+              {% endfor %}
+          {% endif %}
+      {% endblock status_message %}
+      </div>
+
+{% block body_stuff %}
+  
 {% endblock body_stuff %}
+    </div>
+  </div>
 
                        <!-- Start Footer -->
 {% block footer %}
-
-<!-- {% with object_list=links %} -->
-{% include "links/footer.html" %}
-<!-- {% endwith %} -->
-
+  {% include "links/footer.html" %}
 {% endblock footer %}
+
                         <!-- END Container -->
   </div>
 
@@ -121,3 +142,4 @@
 -->
   </body>
 </html>
+

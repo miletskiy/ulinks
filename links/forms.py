@@ -25,7 +25,7 @@ class ResourceAddForm(forms.models.ModelForm):
         self.helper.form_action = reverse('new_link')
 
         self.helper.form_method = 'POST'
-        self.helper.form_class = 'col-sm-12 form-horizontal'
+        self.helper.form_class = 'col-sm-10 form-horizontal'
 
         # field properties
         self.helper.help_text_inline = True

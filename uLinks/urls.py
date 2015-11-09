@@ -25,6 +25,6 @@ urlpatterns = [
 
     url(r'^new$', views.new_link, name='new_link'),
 
-    # url(r'^(\d+)/$', views.view_link, name='view_link'),
+    url(r'^(\d+)/$', views.view_link, name='view_link'),
 ]
 

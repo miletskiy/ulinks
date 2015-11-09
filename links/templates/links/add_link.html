@@ -8,11 +8,27 @@
 
 {% block title %}Add Your Link{% endblock title %}
 
+{% block add_button %}
+{% endblock add_button %}
+
+{% block search %}  
+{% endblock search %}
+
+        {% block status_message %}
+                  {% if messages %}
+                    {% for message in messages %}
+                      <div class="alert alert-warning">
+                         {{ message }}
+                      </div>
+                    {% endfor %}
+                   {% endif %}
+        {% endblock status_message %}
+
 {% block body_stuff %}
 
+    {% crispy form %}
+
+{% endblock body_stuff %}
 <!--
 <h3>There will be form</h3>
  -->
-{% crispy form %}
-
-{% endblock body_stuff %}
