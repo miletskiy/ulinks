@@ -12,8 +12,9 @@ from links.models import Resource
 
 def home_page(request):
     resources = Resource.objects.all()
+    top5 = resources.reverse()[:5]
 
-    return render(request, 'links/links_list.html', {'resources': resources})
+    return render(request, 'links/links_list.html', {'resources': resources, 'top5': top5})
 
 
 def new_link(request):
@@ -34,10 +35,8 @@ def new_link(request):
     return render(request, 'links/add_link.html', {'form': form})
     
 def view_link(request, id):
-    resources = Resource.objects.all()
     resource = Resource.objects.get(pk=id)
-
-    return render(request, 'links/view_link.html', {'id':id,'resources':resources,'resource':resource})
+    return render(request, 'links/view_link.html', {'resource': resource})
 
 
 

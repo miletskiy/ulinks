@@ -21,20 +21,20 @@
               <th>№
               </th>
 
-              <th class="col-xs-2"><a href="#"</a>Title
+              <th class="col-xs-2"><a href="#"></a>Title
               </th>
 
-              <th ><a href="#"</a>Link
+              <th ><a href="#"></a>Link
               </th>
 
               <th class="col-xs-5">Description
               </th>
 
-              <th class="col-xs-2"><a href="#"</a>Add time
+              <th class="col-xs-2"><a href="#"></a>Add time
               </th>
-              <th class="col-xs-1"><a href="#"</a>Cons
+              <th class="col-xs-1"><a href="#"></a>Cons
               </th>
-              <th class="col-xs-1"><a href="#"</a>Pros
+              <th class="col-xs-1"><a href="#"></a>Pros
               </th>
 
             </tr>
@@ -47,17 +47,17 @@
           <tr>
             <td>{{ forloop.counter }}
             </td>
-            <td><a href="{% url 'view_link' resource.id %}"</a>{{ resource.title }}
+            <td><a href="{% url 'view_link' resource.id %}"></a>{{ resource.title }}
             </td>
-            <td><a href="{{ resource.link }}"</a>{{ resource.link }}
+            <td><a href="{{ resource.link }}" target="_blank"></a>{{ resource.link }}
             </td>
             <td>{{ resource.description }}
             </td>
             <td>{{ resource.time_was_add }}
             </td>
-            <td><a href="#"</a>{{ resource.votes_pros }}
+            <td><a href="#"></a>{{ resource.votes_pros }}
             </td>
-            <td><a href="#"</a>{{ resource.votes_cons }}
+            <td><a href="#"></a>{{ resource.votes_cons }}
             </td>
             
           </tr>
@@ -73,13 +73,12 @@
         <h3 class="panel-title">Top 5 resources</h3>
       </div>
       <div class="panel-body">
-        <ol>
-         <li>top1</li>
-         <li>top2</li>
-         <li>top3</li>
-         <li>top4</li>
-         <li>top5</li>
-        </ol>
+      {% for top in top5 %}
+        <ul>
+         {# <!--<li ><a href="{{ top.link }}" target="_blank" </a>{{ top }}</li>--> #}
+         <li><a href="{{ top.link }}" target="_blank" >{{ top }} </a></li>
+        </ul>
+      {% endfor %}
       </div>
     </div>  
   </div>
