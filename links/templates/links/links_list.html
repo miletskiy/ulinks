@@ -13,60 +13,67 @@
 
 
 {% block body_stuff %}
-    
+
+
   <div class="col-xs-9">
-      <table class="table table-hover table-striped">
-        <thead>
-            <tr>
-              <th>№
-              </th>
 
-              <th class="col-xs-2"><a href="#"></a>Title
-              </th>
-
-              <th ><a href="#"></a>Link
-              </th>
-
-              <th class="col-xs-5">Description
-              </th>
-
-              <th class="col-xs-2"><a href="#"></a>Add time
-              </th>
-              <th class="col-xs-1"><a href="#"></a>Cons
-              </th>
-              <th class="col-xs-1"><a href="#"></a>Pros
-              </th>
-
-            </tr>
-        </thead>
-
-        <tbody>
+        <div class="col-xs-12">
+          <h2>Resources</h2>
+        </div>
 
 {% for resource in resources %}
 
-          <tr>
-            <td>{{ forloop.counter }}
-            </td>
-            <td><a href="{% url 'view_link' resource.id %}"></a>{{ resource.title }}
-            </td>
-            <td><a href="{{ resource.link }}" target="_blank"></a>{{ resource.link }}
-            </td>
-            <td>{{ resource.description }}
-            </td>
-            <td>{{ resource.time_was_add }}
-            </td>
-            <td><a href="#"></a>{{ resource.votes_pros }}
-            </td>
-            <td><a href="#"></a>{{ resource.votes_cons }}
-            </td>
+        <div class="row">
+          <div class="col-xs-12 ">
+          <hr>
+            <h3 class="left130"><a href="{% url 'view_link' resource.id %}">{{ resource.title }}</a></h3>
+          </div>
+          <div class="row">
+<!--            column-left-->
+            <div class="col-xs-2 left-col">
+              <div>
+                <a  href="#">{{ resource.votes_pros }}</a>
+              </div>
+              <div class="counter">
+                {{ forloop.counter }}
+              </div>
+              <div>
+                <a href="#">{{ resource.votes_cons }}</a>
+              </div>   
+            </div>
+<!--            column-right-->
+            <div class="col-xs-10">
+              <div class="description">
+                {{ resource.description }}
+              </div>
+              <div class="col-xs-4 date">
+                {{ resource.time_was_add }}
+              </div>
+              <div class="col-xs-8 right-align">
+                <a  href="{{ resource.link }}" target="_blank" title="{{ resource.link }}" >{{ resource.link }}</a>
+              </div>
+
+            </div>
+<!--            border end-->
+          </div>
             
-          </tr>
-
+        </div>      
 {% endfor %}
-        </tbody>
-
-      </table>
   </div>
+   
+<!-- 
+        {# <td class="blue" colspan="2" ><a href="{% url 'view_link' resource.id %}"> #}
+
+   
+           <td>
+            </td>
+            <td>
+            </td>
+            {# <td>{{ resource.time_was_add }} #}
+            </td>
+-->            
+
+
   <div class="col-xs-3">
     <div class="panel panel-default">
       <div class="panel-heading">
